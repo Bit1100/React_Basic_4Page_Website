@@ -1,0 +1,210 @@
+/* Configuration Section */
+
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Variables */
+$orange:orange;
+$gold:gold;
+
+body {
+    background-color: $gold;
+    font-family: open-sans, serif, Helvetica, sans-serif;
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+    color: black;
+    line-height: 1;
+    font-size: 0.8rem;
+    z-index: -1;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-transform: capitalize;
+    text-decoration: none;
+}
+
+hr, .hr {
+    width: 60%;
+    margin: 0rem auto;
+    height: 0.3rem;
+    background-color: skyblue;
+    border-radius: 1rem;
+    z-index: 111;
+}
+
+p {
+    margin: .6rem 0;
+}
+
+.img {
+    padding: 0.25rem;
+    background-color: #fff;
+    border: 1px solid black;
+    border-radius: 0.25rem;
+    max-width: 100%;
+    height: auto;
+}
+
+.btn {
+    padding: 9px 33px;
+    border:5px solid orange;
+    background-color: black;
+    margin: 5px 2px;
+    font-size: 0.8rem;
+    border-radius: 50px;
+    color:gold;
+    font-weight:bold;
+    cursor: pointer;
+    text-align: center;
+
+
+    &:hover {
+       border-color:black;
+       background-color: yellow;
+       color: #1d0a0a;
+    }
+}
+.center {
+    text-align: center;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    margin: 0rem auto;
+    text-align: center;
+    font-size: 2rem;
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+}
+
+
+/* Creating margins and padding using @for loop */
+
+$lst: (1,2,3,4,5);
+@each $i in $lst{
+    .m-#{$i}{
+        margin:#{$i}rem;
+    }
+    .my-#{$i}{
+        margin:#{$i}rem 0rem;
+    }
+    .mx-#{$i}{
+        margin:0rem #{$i}rem;
+    }
+    .mt-#{$i}{
+        margin-top:#{$i}rem;
+    }
+    .mb-#{$i}{
+        margin-bottom:#{$i}rem;
+    }
+    .mr-#{$i}{
+        margin-right:#{$i}rem;
+    }
+    .ml-#{$i}{
+        margin-left:#{$i}rem;
+    }
+    .p-#{$i}{
+        padding:#{$i}rem;
+    }
+    .py-#{$i}{
+        padding:#{$i}rem 0rem;
+    }
+    .px-#{$i}{
+        padding:#{$i}rem;
+    }
+    .pt-#{$i}{
+        padding-top:#{$i}rem;
+    }
+    .pb-#{$i}{
+        padding-bottom:#{$i}rem;
+    }
+    .pr-#{$i}{
+        padding-right:#{$i}rem;
+    }
+    .pl-#{$i}{
+        padding-left:#{$i}rem;
+    }
+}
+.mx-auto{
+    margin: 0rem auto;
+}
+.my-auto{
+    margin: auto 0rem;
+}
+.px-auto{
+    padding: 0rem auto;
+}
+.py-auto{
+    padding: auto 0rem;
+}
+.m-auto{
+    margin: auto;
+}
+.p-auto{
+    padding: auto;
+}
+
+/* Creating color and bgcolor combination using @function*/
+@function set-txt-clr($clr){
+    @if(lightness($clr)>70){
+        @return #333;
+    }@else{
+        @return #fff;
+    }
+}
+
+/* Creating media query using @mixin*/
+@mixin responsive($width...){
+
+    /* Creating media query for single arguments*/
+
+    @if(length($width)==1){
+      @media only screen and (min-width: nth($width,1)){
+        @content;
+    }
+    @media only screen and (min-width: nth($width,1)){
+        @content;
+    }
+    @media only screen and (min-width: nth($width,1)){
+        @content;
+    }
+}
+
+    /* Creating media query for two arguments*/
+
+    @if(length($width)==2){
+        @media only screen and (min-width: nth($width,1))  and (max-width: nth($width,2)){
+          @content;
+      }
+
+          @media only screen and (min-width: nth($width,1)) and (max-width: nth($width,2)){
+          @content;
+      }
+
+          @media only screen and (min-width: nth($width,1)) and (max-width: nth($width,2)){
+          @content;
+      }
+
+}
+}
+/* Creating mixin alternate to grid or flexbox*/
+@mixin grid($cols,$mrg){
+    float: left;
+    margin-right: $mrg;
+    margin-bottom: $mrg;
+    width: ((100%-(($cols-1)*mrg))/$cols);
+    &:nth-child(#{$cols}){
+        margin-right: 0;
+    }
+}

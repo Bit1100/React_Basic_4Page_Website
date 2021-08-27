@@ -1,0 +1,50 @@
+.blogs{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(500px, auto));
+    border-radius: 20px;
+    &-heading{
+        font-size: 3rem;
+        margin:1rem;
+    }
+    &-category{
+        background-color:lighten(green,50%);
+        width:50%;
+        margin:1.5rem auto;
+        border-radius: 50px;
+        background-color: black;
+        color:$gold;
+        padding:20px;
+        font-size: 2rem;
+    &:hover{
+        background-color: white;
+        color:black;
+      }
+   }
+}
+.category-items{
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(auto-fit,minmax(600px, auto));
+    margin:20px;
+    &-item{
+        border-radius: 50px;
+        background-color: black;
+        margin:50px;
+        color:$gold;
+        padding:100px;
+        font-size: 3rem;
+        &:hover{
+            cursor:pointer;
+            transition:.5s;
+            border: 5px solid goldenrod;
+            box-shadow: 3px 3px 50px 3px brown;
+        }
+    }
+}

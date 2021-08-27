@@ -1,0 +1,11 @@
+@import 'config';
+@import 'menu';
+@import 'about';
+@import 'contact';
+@import 'blogs';
+@import 'home';
+
+.active{
+    background-color:transparent;
+    border-bottom: 3px solid green;
+}

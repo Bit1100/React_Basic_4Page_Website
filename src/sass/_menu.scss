@@ -1,0 +1,41 @@
+.nav{
+    display:flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color:brown;
+    .logo{
+        font-size: 30px;
+        font-weight: bolder;
+        color:$gold;
+    }
+    &-items{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: row wrap;
+        &-item{
+            margin:10px;
+            padding:10px;
+            color:$gold;
+            transition:all 0.5s ease-in-out;
+            border-radius: 50px;
+            background-color:black;
+            &:hover{
+                background-color:skyblue;
+            }
+        }
+    }
+    &-link{
+        font-weight: bolder;
+        font-size:1.3rem;
+        color:$gold;
+        text-decoration: none;
+        transition:all 0.5s ease-in-out;
+        &:hover{
+            color:red;
+            transform: scale(1.3);
+        }
+    }
+
+}
